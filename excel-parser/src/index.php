@@ -76,6 +76,10 @@ function GetDocType($sheet)
 	$A1 = trim_it($sheet->getCell("A1")->getValue());
 	$A12 = trim_it($sheet->getCell("A12")->getValue());
 	if ($A1 == "Акт сверки" && strpos(mb_strtolower($A12), "на начало периода:") !== false) return 13; // Акт сверки v13 - присвоен индекс 13...
+
+	//  Формат УК
+	$A1 = trim_it($sheet->getCell("A1")->getValue());
+	if (strpos(mb_strtolower($A1), "начисления и оплаты") !== false) return 19; // Формат УК - присвоен индекс 19...
 	
 	//  Акт сверки v2
 	$B2 = trim_it($sheet->getCell("B2")->getValue());
